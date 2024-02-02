@@ -4,6 +4,8 @@ on:
   push:
     branches:
       - Feature-deploy-in-AWS
+    paths:
+      - "client/**"
 
 defaults:
   run:
