@@ -3,7 +3,7 @@ name: S3Workflow
 on:
   push:
     branches:
-      - level-300
+      - Feature-deploy-in-AWS
 
 defaults:
   run:
