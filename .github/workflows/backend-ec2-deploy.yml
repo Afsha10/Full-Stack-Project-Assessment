@@ -5,7 +5,7 @@ on:
     branches:
       - Feature-deploy-in-AWS
     paths:
-        - "server/**"
+      - "server/**"
 
 defaults:
   run:
@@ -17,16 +17,16 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v3
-    
+
       - name: Create private key
         run: echo "${{ secrets.VIDEO_STORAGE_PRIVATE_KEY}}" > videoStorage.pem
 
       - name: Connect to EC2
         run: |
-        chmod 400 videoStorage.pem
-        ssh -i videoStorage.pem -o StrictHostChecking=no ec2-user@ec2-18-201-166-46.eu-west-1.compute.amazonaws.com << EOF
-            cd video-storage-app/server/
-            git pull
-            npm install
-            pm2 restart server
-        EOF
+          chmod 400 videoStorage.pem
+          ssh -i videoStorage.pem -o StrictHostChecking=no ec2-user@ec2-18-201-166-46.eu-west-1.compute.amazonaws.com << EOF
+              cd video-storage-app/server/
+              git pull
+              npm install
+              pm2 restart server
+          EOF
