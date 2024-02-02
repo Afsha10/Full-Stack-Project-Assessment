@@ -25,6 +25,9 @@ const db = new Pool({
 });
 
 // GET "/"
+app.get("/", (req, res) => {
+  res.status(200).json("Hello World!");
+});
 
 // Connecting to database
 db.connect(function (err) {
