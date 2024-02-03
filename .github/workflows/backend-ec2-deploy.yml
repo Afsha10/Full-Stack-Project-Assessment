@@ -25,8 +25,9 @@ jobs:
         run: |
           chmod 400 videoStorage.pem
           ssh -i videoStorage.pem -o StrictHostKeyChecking=no ec2-user@ec2-18-201-166-46.eu-west-1.compute.amazonaws.com << EOF
-              cd video-storage-app/server
+              cd video-storage-app
               git pull
+              cd server
               npm install
               pm2 restart server.js
           EOF
