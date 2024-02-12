@@ -1,5 +1,6 @@
 # Use the official Node.js runtime as the base image
 FROM node:18-alpine
+
 # Giving env variables to docker file
 ENV NODE_ENV=production
 
