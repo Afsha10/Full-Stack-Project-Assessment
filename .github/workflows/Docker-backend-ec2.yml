@@ -46,7 +46,7 @@ jobs:
         with:
           host: ${{ secrets.EC2_HOST }}
           username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SECRET_ACCESS_KEY }}
+          key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             docker login -u afsha9 -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
             docker pull afsha9/video-storage-app:latest
