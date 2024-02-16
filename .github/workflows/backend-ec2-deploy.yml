@@ -29,5 +29,5 @@ jobs:
               git pull
               cd server
               npm install
-              pm2 restart server.js
+              NODE_ENV=aws pm2 restart server.js
           EOF
