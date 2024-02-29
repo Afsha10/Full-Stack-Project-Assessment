@@ -26,7 +26,7 @@ const db = new Pool({
 
 // GET "/"
 app.get("/", (req, res) => {
-  res.status(200).json("Hello World!! I'm testing my back-end server!:)))");
+  res.status(200).json("Hello World!! I'm testing my back-end server!:))))");
 });
 
 // Connecting to database
