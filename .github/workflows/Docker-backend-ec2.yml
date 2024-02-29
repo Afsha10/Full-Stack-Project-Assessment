@@ -44,8 +44,8 @@ jobs:
       - name: EC2 SSH > Start PM2 process
         uses: appleboy/ssh-action@v1.0.0
         with:
-          host: ${{ secrets.EC2_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
+          host: ${{ vars.EC2_HOST }}
+          username: ${{ vars.SSH_USERNAME }}
           key: ${{ secrets.SSH_PRIVATE_KEY }}
           script: |
             docker login -u afsha9 -p ${{ secrets.DOCKER_ACCESS_TOKEN }}
