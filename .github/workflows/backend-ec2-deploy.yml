@@ -24,6 +24,8 @@ jobs:
       - name: Connect to EC2
         run: |
           chmod 400 videoStorage.pem
+          echo "${{ secrets.EC2_HOST }}"
+          cat videoStorage.pem
           ssh -i videoStorage.pem -o StrictHostKeyChecking=no "ec2-user@${{ secrets.EC2_HOST }}" << EOF
               cd video-storage-app
               git pull
