@@ -19,14 +19,14 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Create private key
-        run: echo "${{ secrets.SSH_PRIVATE_KEY}}" > videoStorage.pem
+        run: echo "${{ secrets.SSH_PRIVATE_KEY}}" > terraform-week-pem-file.pem
 
       - name: Connect to EC2
         run: |
           chmod 400 videoStorage.pem
           echo "${{ vars.SSH_USERNAME }}@${{ vars.EC2_HOST }}"
-          cat videoStorage.pem
-          ssh -i videoStorage.pem -o StrictHostKeyChecking=no "${{ vars.SSH_USERNAME }}@${{ vars.EC2_HOST }}" << EOF
+          cat terraform-week-pem-file.pem
+          ssh -i terraform-week-pem-file.pem -o StrictHostKeyChecking=no "${{ vars.SSH_USERNAME }}@${{ vars.EC2_HOST }}" << EOF
               cd video-storage-app
               git pull
               cd server
