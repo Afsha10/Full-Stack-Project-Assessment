@@ -27,7 +27,7 @@ jobs:
           echo "${{ vars.SSH_USERNAME }}@${{ vars.EC2_HOST }}"
           cat terraform-week-pem-file.pem
           ssh -i terraform-week-pem-file.pem -o StrictHostKeyChecking=no "${{ vars.SSH_USERNAME }}@${{ vars.EC2_HOST }}" << EOF
-              cd terraform-VideoStorage-app
+              cd video-storage-app
               git pull
               cd server
               npm install
